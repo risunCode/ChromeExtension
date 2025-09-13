@@ -1,5 +1,8 @@
 # My Collection of chrome extension!
-by risunCode
+
+> [!IMPORTANT]
+> Bring to you by risunCode
+> - Extension that made easy for your daily task!
 
 ### SesWi — Advanced Session Manager (Chrome Extension)
 - Link to extension: https://github.com/risunCode/SesWi-Session-Manager
