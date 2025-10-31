@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "YT Music Audio Only - Saves your bandwidth",
+  "version": "1.0",
+  "description": "Hide video player from YouTube & YouTube Music while keeping thumbnails visible - Save bandwidth",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png",
+    "default_title": "YT Audio Only Settings"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://music.youtube.com/*",
+        "*://www.youtube.com/*",
+        "*://youtube.com/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "icons": {
+    "48": "icon.png"
+  }
+}

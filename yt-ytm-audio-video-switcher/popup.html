@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YT Audio Only Settings</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 320px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 50%, #ff9a56 100%);
+      color: white;
+      padding: 0;
+    }
+
+    .header {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .header h1 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .header p {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .setting-group {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      backdrop-filter: blur(10px);
+    }
+
+    .setting-group h3 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .setting-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .setting-item:last-child {
+      border-bottom: none;
+    }
+
+    .setting-label {
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .setting-label small {
+      font-size: 11px;
+      opacity: 0.7;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 48px;
+      height: 26px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 13px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .toggle-switch.active {
+      background: #4ecdc4;
+    }
+
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    .toggle-switch.active::after {
+      transform: translateX(22px);
+    }
+
+    .footer {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 15px 20px;
+      text-align: center;
+      border-top: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .github-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: white;
+      text-decoration: none;
+      font-size: 12px;
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+
+    .github-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .status {
+      margin-top: 10px;
+      padding: 8px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      font-size: 11px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🎵 YT Audio Only</h1>
+    <p>Save bandwidth, enjoy music</p>
+  </div>
+
+  <div class="content">
+    <div class="setting-group">
+      <h3>📺 YouTube Settings</h3>
+      <div class="setting-item">
+        <div class="setting-label">
+          <span>Show Title & Info</span>
+          <small>Display song info on thumbnail</small>
+        </div>
+        <div class="toggle-switch active" id="youtube-info-toggle">
+        </div>
+      </div>
+    </div>
+
+    <div class="setting-group">
+      <h3>🎵 YouTube Music Settings</h3>
+      <div class="setting-item">
+        <div class="setting-label">
+          <span>Show Title & Info</span>
+          <small>Display song info on thumbnail</small>
+        </div>
+        <div class="toggle-switch active" id="ytmusic-info-toggle">
+        </div>
+      </div>
+    </div>
+
+    <div class="status" id="status">
+      Settings loaded
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="https://github.com/risuncode/yt-ytm-audio-only-switcher" target="_blank" class="github-link">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+      </svg>
+      GitHub Repository
+    </a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
